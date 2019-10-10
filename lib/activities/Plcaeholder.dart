@@ -49,7 +49,7 @@ class _PlaceholderState extends State<Placeholder> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          DetailActivity(index, _list[index].poster_path,_list[index].original_title)),
+                          DetailActivity(_list[index].id, _list[index].poster_path,_list[index].original_title)),
                 ),
                 child: Card(
                   borderOnForeground: true,
