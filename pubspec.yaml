@@ -21,6 +21,7 @@ dependencies:
   extended_image: ^0.6.1
   pull_to_refresh: ^1.5.6
   flutter_rating_bar: ^3.0.0
+  url_launcher: ^5.1.4
   flutter:
     sdk: flutter
 
