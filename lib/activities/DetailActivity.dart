@@ -55,20 +55,22 @@ class _DetailState extends State<DetailActivity> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Text(
+                    Flexible(child:Text(
                       '${movie == null ? "" : movie.original_title}',
                       style: TextStyle(fontSize: 14),
-                    ),
+                    ), flex: 1 ),
+
                     RatingBar(
-                      initialRating: 3,
+                      initialRating: 3.4,
                       direction: Axis.horizontal,
                       allowHalfRating: true,
                       itemCount: 5,
                       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) => Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
+                      itemBuilder: (context, _) =>
+                          Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
 //                          onRatingUpdate: (rating) {
 //                            print(rating);
 //                          },
@@ -110,7 +112,7 @@ class _DetailState extends State<DetailActivity> {
   Future<Movie> getmovie(int id) async {
     http
         .get(
-            "http://api.themoviedb.org/3/movie/${id}?api_key=832f13a97b5d2df50ecf0dbc8a0f46ae")
+        "http://api.themoviedb.org/3/movie/${id}?api_key=832f13a97b5d2df50ecf0dbc8a0f46ae")
         .then((http.Response response) {
       if (response.statusCode == 200) {
         setState(() {
@@ -131,12 +133,11 @@ class Movie {
   int revenue;
   String status;
 
-  Movie(
-      {this.original_language,
-      this.original_title,
-      this.overview,
-      this.revenue,
-      this.status});
+  Movie({this.original_language,
+    this.original_title,
+    this.overview,
+    this.revenue,
+    this.status});
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return new Movie(
